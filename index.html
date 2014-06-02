@@ -1,357 +1,67 @@
 <!DOCTYPE html>
 <html>
-<!--
-  Created using jsbin.com
-  Source can be edited via http://jsbin.com/vesik/3/edit
--->
 <head>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-<meta charset=utf-8 />
-<title>Welcome to JS Bin</title>
-<meta name="viewport" content="width=device-width">
-<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-<style id="jsbin-css">
-body {
-  padding: 0;
-  margin: 0;
-  
-  background: #3FA8C6;
-  background-image: -moz-linear-gradient(top, #3fa8c6 0%, #3fa8c6 0%, #399ab2 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3fa8c6), color-stop(0%,#3fa8c6), color-stop(100%,#399ab2));
-  background-image: -webkit-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#399ab2 100%);
-  background-image: -o-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#399ab2 100%);
-  background-image: -ms-linear-gradient(top, #3fa8c6 0%,#3fa8c6 0%,#399ab2 100%);
-  background-image: linear-gradient(to bottom, #3fa8c6 0%,#3fa8c6 0%,#399ab2 100%);
-  color: #fff; 
-  
-  font-family: 'Doppio One', sans-serif; 
-  text-shadow: 0 1px 0 rgba(0,0,0,.3); 
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-.wrapper {
-  width: 50%;
-  margin: 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  letter-spacing: -0.03em;
-  font-size: 2em;
-}
-
-a { 
-  border-bottom: 1px solid #fff; 
-  border-bottom: 1px solid rgba(255,255,255,0.7); 
-  padding-bottom: 0.15em;
-  position: relative;
-  
-  color: white;
-  text-decoration: none; 
-}
-
-a:after {
-  content: '';
-  position: absolute;
-  height: 1px;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  background: rgba(0,0,0,.1);
-}
-
-a:hover {
-  color: #C0E3EC;
-}
-
-h1 { 
-  margin: 0.667em 0 0;
-  padding-left: 0.5em;
-  text-align: left; 
-}
-
-h2 {
-  font-size: 1.5em;
-}
-
-small {
-  margin-top: 1em;
-  display: block;
-  font-style: italic;
-  font-size: 0.667em;
-}
-
-p em {
-  font-style: none;
-}
-
-#welcome {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 1em;
-  padding-left: 20px;
-}
-
-#dave {
-  float: left;
-  margin-top: 3em
-}
-
-.bubble p {
-  line-height: 22px; 
-}
-
-.bubble {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-
-  padding: 0.667em 1em;
-  position: relative;
-}
-
-.bubble:after {
-  content: "";
-  position: absolute;
-  
-  width: 0; 
-  height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent; 
-  border-right: 20px solid white; 
-  border-right-color: inherit;
-  top: 50px;
-  left: -20px;
-}
-
-#features {
-  margin: 0.444em 0 0;
-  clear: both;
-}
-
-#features > h2 {
-  margin: 0;
-}
-
-#features ol {
-  position: relative;
-  padding: 1em 0 1.5em;
-  background: rgba(0,0,0,.1);
-  border-color: rgba(0,0,0,.1);
-  margin: 0;
-  overflow: hidden;
-  list-style: none;
-  counter-reset: item;
-}
-
-#features li {
-  width: 30%;
-  padding: 0 1.5%;
-  float: left;
-  text-align: center;
-}
-
-#features li:before {
-  display: block;
-  width: 2em;
-  height: 2em;
-  padding: 1em;
-  margin: 0.667em auto 1em;
-  
-  content: counter(item);
-  counter-increment: item;
-  
-  line-height: 2;
-  text-align: center;
-  
-  background: rgba(0,0,0,.1);
-  border-radius: 2em;
-  box-shadow: inset 0 0 1em rgba(0,0,0,.1), 0 2px 2px rgba(255,255,255,.1);
-}
-
-#next > div {
-  width: 45%;
-  float: left;
-  padding: 0 2.5%;
-}
-
-img {
-  z-index: 1;
-  -webkit-transition: -webkit-transform 2s ease-in-out;
- -moz-transition: -moz-transform 2s ease-in-out;
- -o-transition: -o-transform 2s ease-in-out;
- -ms-transition: -ms-transform 2s ease-in-out;
- transition: transform 2s ease-in-out;
- position: relative;
-}
-
-img:active {
-  -webkit-transform: rotate(1440deg) scale(1.2);
-  -moz-transform: rotate(1440deg) scale(1.2);
-  -o-transform: rotate(1440deg) scale(1.2);
-  -ms-transform: rotate(1440deg) scale(1.2);
-  
-}
-
-@media screen and (max-width: 1200px) {
-  .wrapper {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper {
-    width: auto;
-    margin: 0;
-  }
-  #welcome {
-    margin-right: 2.5%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .wrapper {
-    text-align: center;
-  }
-  #dave {
-    float: none;
-  }
-  
-  #welcome {
-	padding: 0 1.5em;
-    margin: 0;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 0;
-    padding-left: 0;
-    font-size: 1.8em;
-  }
-  #welcome > h2 {
-    margin-bottom: 0.667em;
-  }
-  .bubble {
-    text-align: center;
-  }
-  .bubble:after {
-    display: none;
-  }
-  #features li {
-    width: 47%;
-  }
-  #features li:last-child {
-    float: none;
-    clear: both;
-    margin: 0 auto;
-  }
-  
-  #next > div {
-    float none;
-    width: auto;
-  }
-}
-
-
-
-
-
-
-
-
-</style>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+	<meta charset=utf-8 />
+	<title>Welcome to JS Bin</title>
+	<meta name="viewport" content="width=device-width">
+	<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+	<link href='css/cascading.css' rel='stylesheet' type='text/css'>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
   
 <body>
   
   <div class="wrapper">
-    
-    <img id="dave" src="http://static.jsbin.com/images/logo.png" alt="Dave, the JS Bin bot">
-    
-    <div id="welcome">
-      <h1>Welcome to JS Bin!</h1>
-      <p class="bubble"><strong>Hello</strong>, I'm <em><strong>Dave</strong> the <strong>JS Bin</strong> bot</em>. <br/>JS Bin is a JavaScript, HTML and CSS playground. If you want to experiment, learn or help your friends with a problem, then JS Bin is for you.<br/>Have a play and build something <strong>cool</strong>!<small id="message">Oh, and please don't press me, I get dizzy...</small></p>
-      <h2>But what can I do?</h2>
+    <div>
+      <a href="https://www.facebook.com/mieszkoc" class="soca"><img id="fb" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724RlZsWk14TDJqc28&export=download" alt="fb"></a>
+      <a href="https://plus.google.com/u/0/108339624001702406078/posts" class="soca"><img id="gplus" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724MWp1eVZXZnpnZFE&export=download" alt="g+"></a>
     </div>
     
+    <div id="five">
+       <img id="kompozycja" width="150" height="150" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724c1p1VUdSdGhBbjg&export=download" alt="kompozycja">
+       <img id="palm" width="130" height="150" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724TVIyc1VHM3Jua00&export=download" alt="palm">
+      <div id="wstazka">
+        <hr />
+      </div>
+    </div>
+    <span id="mstyle">Mcichon style.</span>
+    <hr id="hrstyle" />
+    <div>
+      
+      <img id="mcichon" width="200" height="200" src="https://lh4.googleusercontent.com/-k-tw40CS0pI/UoD-iSvDkxI/AAAAAAAAADU/l3qMFtrOtEg/w708-h709-no/1368732_4687134476158_1046999325_n.jpg" alt="mcichon">
+
+      <div id="welcome">
+        <h1>Welcome to JS Bin!</h1>
+        <p class="bubble"><strong>Cześć </strong>Trafiłeś na stronę internetową która została stworzona od podstaw w html5. <br>Moja witryna to kopalnia moich projektów, pomysłów i prac (każdą z nich można pobrać i edytowaćw dowolnym miejscu). <br> <strong>Życzę powodzenia w przeglądaniu tego miejsca!</strong><small id="message">Oh, and please don't press me, I get dizzy...</small></p>
+          <h2>Na stronie znajdziesz informacje dotyczące:</h2>
+      </div>
+    </div>
     <div id="features">
       <ol>
-        <li>As you type, HTML and CSS is automagically rendered <em>live</em> in this window. I'll save a new bin for you too.</li>
-        <li>If you're <a class="open" href="#register">registered</a> and logged in, I'll remember all your bins and give you a nice complete list with quick previews.</li>
-        <li>You can even use keyboard shortcuts to help you get around faster - just <a class="open" href="#keyboardHelp">hit ctrl+?</a> for the full list.</li>
+        <li>Tworzeniu prostych i przejrzystych stronach internetowych, prostych zagadnieniach i możliwościach <em>HTML(5)</em> i <em>CSS</em></li>
+		<li>Programowaniu nowoczensych aplikacji stosując do tego celu proste oraz złożone algorytmy, opierając się o języki <a target="_blank" href="http://pl.wikipedia.org/wiki/C%2B%2B"><em>C++</em></a>, <a target="_blank" href="http://pl.wikipedia.org/wiki/C_Sharp"><em>C#</em></a> i <a target="_blank" href="http://pl.wikipedia.org/wiki/Java"><em>Java</em></a></li>
+        <li>Animacji wielowymiarowej i tworzeniu prostych gier komputerowych, stosując do tego celu nowoczesne <a class="open" href="http://pl.wikipedia.org/wiki/Grafika_3D">oprogramowanie.</a></li>
       </ol>
     </div>
     
     <div id="next">
-      <div>
-        <h2>Get meddling!</h2>
-        <p>Open the <a class="open" href="#css">CSS</a> panel and try changing things about! You'll see this window update <em>live</em> (and get your own unique copy of this <em>bin</em> right away).</p>
-        <p>You won't see this message again by default, but if you do want a reminder, you can either use the <a class="open" href="#helpmenu">help</a> or visit <a href="http://jsbin.com/welcome">jsbin.com/welcome</a>.</p>
+      <div class="end">
+        <h2>Społeczność GitHub!</h2>
+        <a href="http://www.github.com" class="im" id="github"><img src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724NXNEQVlub2FzbHM&export=download" alt="fb"></a>
+        <p><a class="open" href="http://www.github.com">GitHub</a> jest darmowym serwisem internetowym, umożliwiającym między innymi darmowe <em>hostingowanie</em> plików. Ponadto posiada funkcje, jakich nie posiada system git, a są nimi np rozbudowane statystyki, forki repozytoriów, organizacje oraz web hooks.<p>
       </div>
-      <div>
-        <h2>Help out</h2>
-        <p>JS Bin is an open source project available on <a href="http://github.com/remy/jsbin">github</a> with instructions on how to host it yourself.</p>
-        <p>If you're in the running workshops (or teaching to a much wider audience), you can get a custom skin and starting templates &ndash; like <a target="_blank" href="http://sebly.jsbin.com">this</a> one. Just <a target="_blank" href="http://leftlogic.com/contact">get in touch</a> and ask for Rem.</p>
+      <div class="end">
+        <h2>Wszystkie projekty!</h2>
+        <p>Wszystkie zamieszczone w tym miejscu projekty dostępne są do pobrania na tej <a href="href="https://github.com/cichm"></a>stronie .</p>
+                                                                                                                                <p>Niniejszy odnośnik &ndash; <a target="_blank" href="https://github.com/cichm">mcichon.github</a> prowadzi do oficjalnego konta z zebranymi projektami. Każdy zainteresowany może współtworzyć zamieszczone tam prace, wystarczy posiadać umiejętności i zaangażowanie aby stać się członkiem społeczności.</p>
       </div>
     </div>
-    
+    <div>
+      <a href="https://www.facebook.com/mieszkoc" class="im"><img id="fb" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724RlZsWk14TDJqc28&export=download" alt="fb"></a>
+      <a href="https://plus.google.com/u/0/108339624001702406078/posts" class="im"><img id="gplus" width="30" height="30" src="https://docs.google.com/uc?authuser=0&id=0B9krPG8DA724MWp1eVZXZnpnZFE&export=download" alt="g+"></a>
+    </div>
   </div>
   
-<script>
-$('a.open').click(function (event) {
-  event.preventDefault();
-  window.top.$('a[href$="' + this.hash + '"]').mousedown().click();
-});
-
-var presses = 0;
-
-var spin = [
-  "Woahohaohaohaahoahaohaohaohaohaoha...",
-  "Nononono...aiiiiiiiiiiiiieeeeeeee....",
-  "Aaaaaaaaaghhhhh...woahwoahwoahwoahwoah...",
-  "You're eeeeeeeeviiiiiiilllllllll....",
-  "Eee...eee...eee...eee...eee...",
-  "Woowoowoowoowoowoowoowoowoo..."
-];
-  
-var stop = [
-  "Please... never again.",
-  "I'm so dizzy.",
-  "That's just... cruel.",
-  "Don't you have better things to do?",
-  "I can't feel my toes... oh wait, I don't have any toes!",
-  "This isn't fun anymore.",
-  "...",
-  "I'm going to be sick.",
-  "Uh-oh, I think I just dropped some tables...",
-  "Yep, I think I'm about to SQL-project everywhere...",
-  "SELECT * FROM `stomach`...",
-  "var_dump($result)...",
-  "+_+"
-];
-
-$('#dave').mousedown(function () {
-  
-  $('#message').fadeOut(function () {
-    $(this).text(spin[presses % spin.length]);
-    presses = presses + 1;
-  }).fadeIn();
-  
-}).mouseup(function () {
-  
-  $('#message').fadeOut(function () {
-    $(this).text(stop[presses % stop.length]);
-  }).fadeIn();
-  
-  if( presses >= stop.length - 1 ) {
-	$(this).animate({left: '-999px'}, 1000 * 10, function () {
-      $(this).animate({left: '0'}, 1000 * 4);
-      presses = 0;
-    });
-  }
-  
-});
-</script>
 </body>
 </html>
